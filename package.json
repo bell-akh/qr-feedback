@@ -1,0 +1,25 @@
+{
+  "name": "qr-feedback-generator",
+  "version": "1.0.0",
+  "description": "Single-QR OTP verifier with deterministic 5-char code generation",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "generate:qr": "node scripts/generate-qr.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vercel/kv": "^3.0.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "firebase-admin": "^13.7.0",
+    "qrcode": "^1.5.4",
+    "serverless-http": "^3.2.0",
+    "sqlite3": "^6.0.1",
+    "twilio": "^5.13.1"
+  }
+}

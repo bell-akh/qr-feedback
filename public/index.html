@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Belle Noor Member Verification</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #07040a;
+        --card: #14081b;
+        --muted: #c8bdd0;
+        --text: #f8f2fb;
+        --brand: #ad2b86;
+        --brand-2: #7f1d6a;
+        --ok: #51d49d;
+        --err: #ff808f;
+        --line: rgba(255, 255, 255, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Segoe UI", Arial, sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at 20% 0%, rgba(173, 43, 134, 0.28), transparent 36%),
+          radial-gradient(circle at 100% 100%, rgba(127, 29, 106, 0.22), transparent 40%),
+          var(--bg);
+        display: grid;
+        place-items: center;
+        padding: 20px;
+      }
+
+      .card {
+        width: min(460px, 96vw);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent), var(--card);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 24px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+      }
+
+      .logo-wrap {
+        text-align: center;
+        margin-bottom: 14px;
+      }
+
+      .logo-circle {
+        width: 88px;
+        height: 88px;
+        margin: 0 auto 8px;
+        border-radius: 50%;
+        border: 2px solid rgba(173, 43, 134, 0.85);
+        display: grid;
+        place-items: center;
+        color: #d654b1;
+        font-size: 1.15rem;
+      }
+
+      .logo-text {
+        margin: 0;
+        color: #d654b1;
+        font-size: 2.1rem;
+        line-height: 1;
+        letter-spacing: 1px;
+        font-family: "Brush Script MT", "Segoe Script", cursive;
+      }
+
+      .sub {
+        margin: 6px 0 0;
+        color: var(--muted);
+        text-align: center;
+        font-size: 0.92rem;
+      }
+
+      h1 {
+        margin: 18px 0 8px;
+        font-size: 1.2rem;
+        text-align: center;
+      }
+
+      .steps {
+        display: flex;
+        gap: 8px;
+        margin: 0 0 18px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .chip {
+        font-size: 0.75rem;
+        padding: 5px 10px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        color: var(--muted);
+      }
+
+      .field {
+        margin-bottom: 14px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 0.88rem;
+        color: var(--muted);
+      }
+
+      input {
+        width: 100%;
+        padding: 11px 12px;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        color: var(--text);
+        background: rgba(255, 255, 255, 0.03);
+        outline: none;
+      }
+
+      input:focus {
+        border-color: rgba(214, 84, 177, 0.9);
+        box-shadow: 0 0 0 3px rgba(214, 84, 177, 0.2);
+      }
+
+      .btn {
+        width: 100%;
+        border: none;
+        border-radius: 10px;
+        padding: 11px 12px;
+        font-weight: 600;
+        cursor: pointer;
+        color: #fff;
+      }
+
+      .btn-primary {
+        background: linear-gradient(90deg, var(--brand), var(--brand-2));
+      }
+
+      .btn-secondary {
+        background: linear-gradient(90deg, #8e2581, #5f1f77);
+      }
+
+      .btn-ghost {
+        margin-top: 10px;
+        background: transparent;
+        border: 1px solid var(--line);
+        color: var(--text);
+      }
+
+      .btn:disabled {
+        cursor: not-allowed;
+        opacity: 0.6;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      .msg {
+        margin-top: 12px;
+        padding: 10px 12px;
+        border-radius: 10px;
+        border: 1px solid var(--line);
+        font-size: 0.9rem;
+        color: var(--muted);
+        min-height: 42px;
+      }
+
+      .msg.ok {
+        border-color: rgba(81, 212, 157, 0.45);
+        color: var(--ok);
+      }
+
+      .msg.err {
+        border-color: rgba(255, 128, 143, 0.45);
+        color: var(--err);
+      }
+
+      .code-wrap {
+        margin-top: 14px;
+        text-align: center;
+      }
+
+      .code {
+        margin: 0;
+        font-size: 2rem;
+        letter-spacing: 6px;
+        font-weight: 800;
+        color: #ffd0ef;
+      }
+
+      .hint {
+        margin: 8px 0 0;
+        font-size: 0.82rem;
+        color: var(--muted);
+      }
+
+      .shop-note {
+        margin-top: 12px;
+        padding: 10px;
+        border: 1px dashed rgba(214, 84, 177, 0.5);
+        border-radius: 10px;
+        font-size: 0.82rem;
+        color: #efd9ff;
+        background: rgba(214, 84, 177, 0.08);
+      }
+
+      .shop-note a {
+        color: #ffd0ef;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <div class="logo-wrap">
+        <div class="logo-circle">BN</div>
+        <p class="logo-text">belle noor</p>
+        <p class="sub">Members Portal</p>
+      </div>
+
+      <h1>Claim your lifetime membership and get up to 30% OFF</h1>
+      <div class="steps">
+        <span class="chip">1. Enter details</span>
+        <span class="chip">2. Verify OTP</span>
+        <span class="chip">3. Get member code</span>
+      </div>
+
+      <div class="field">
+        <label for="name">Name (optional)</label>
+        <input id="name" type="text" placeholder="Your name" autocomplete="name" />
+      </div>
+
+      <div class="field">
+        <label for="phone">Mobile Number</label>
+        <input id="phone" type="tel" placeholder="10-digit mobile number" autocomplete="tel-national" />
+      </div>
+
+      <button id="sendOtpBtn" class="btn btn-primary">Send OTP</button>
+
+      <div id="otpSection" class="hidden">
+        <div class="field" style="margin-top: 14px">
+          <label for="otp">Enter OTP</label>
+          <input id="otp" type="text" maxlength="6" placeholder="6-digit OTP" inputmode="numeric" />
+        </div>
+        <button id="verifyBtn" class="btn btn-secondary">Verify & Get Member Code</button>
+      </div>
+
+      <div id="message" class="msg">Enter your phone number to begin verification.</div>
+
+      <div class="code-wrap">
+        <p id="code" class="code"></p>
+        <button id="copyCodeBtn" class="btn btn-ghost hidden" type="button">Copy Member Code</button>
+        <p id="shopNote" class="shop-note hidden">
+          Shop now at <a href="https://belle-noor.in" target="_blank" rel="noopener noreferrer">https://belle-noor.in</a>
+          and use your member code at checkout.
+        </p>
+        <p class="hint">Use your member code during checkout to claim coupon benefits.</p>
+        <p class="hint" style="font-size: 0.68rem; opacity: 0.85">
+          Membership benefits and discounts are subject to terms and may be capped up to a maximum INR value.
+        </p>
+      </div>
+    </main>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
